@@ -4,14 +4,8 @@ require 'db.php';
 
 $error = '';
 
-try {
-    $connect = new PDO($dsn, $user, $pass);
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
-}
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
+    $username = trim($_POST['username']);
     $password = $_POST['password'];
 
     $stmt = $connect->prepare("SELECT * FROM user WHERE username = ?");
@@ -24,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: dashboard.php");
         exit;
     } else {
-        $error = "Invalid username or password.";
+        $error = "Ongeldige gebruikersnaam of wachtwoord.";
     }
 }
 ?>
@@ -33,18 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Sakana Sushi - Login</title>
+      <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <header>
-    <div class="nav-container">
-        <img src="logo.png" alt="Sushi Logo" class="logo">
-        <nav>
-            <a href="index.php">home</a>
-            <a href="contact.php">contact</a>
-            <a href="about.php">about us</a>
-        </nav>
-    </div>
-</header>
+
+<?php include 'includes/header.php'; ?>
+
 
 <main>
     <div class="register-box">

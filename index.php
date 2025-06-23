@@ -36,27 +36,8 @@ $items = $stmt->fetchAll();
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<div class="container-for-width">
-    <header>
-    <?php
-session_start();
-?>
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.php">HOME</a></li>
-      <li><a href="menu.php">MENU</a></li>
-      <li><a href="about.php">ABOUT US</a></li>
-      <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]): ?>
-          <li><a href="admin.php">ADMIN</a></li>
-          <li><a href="logout.php">LOGOUT</a></li>
-      <?php else: ?>
-          <li><a href="inlog.php">LOGIN</a></li>
-      <?php endif; ?>
-    </ul>
-  </nav>
-</header>
-
+    <?php include 'includes/header.php'; ?>
+  <div class="container-for-width">
 
     <section class="hero">
         <img src="images/sushi-platter.png" alt="Sushi platter">

@@ -1,3 +1,8 @@
+<?php
+require 'includes/db.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -7,16 +12,8 @@
 </head>
 <body>
 
-<header>
-    <div class="logo">Sushi Sakura</div>
-    <nav>
-        <a href="index.php">Home</a>
-        <a href="about.php">Over ons</a>
-        <a href="menu.php">Menu</a>
-        <a href="contact.php">Contact</a>
-        <a href="login.php">Login</a>
-    </nav>
-</header>
+<?php include 'includes/header.php'; ?>
+
 
 <section class="hero">
     <h1>Over ons</h1>

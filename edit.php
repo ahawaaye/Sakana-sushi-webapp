@@ -1,4 +1,5 @@
 <?php
+require 'includes/db.php';
 $pdo = new PDO("mysql:host=mysql_db;dbname=mydatabase", "root", "rootpassword");
 
 
