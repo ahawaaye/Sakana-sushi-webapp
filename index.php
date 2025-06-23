@@ -51,13 +51,12 @@ session_start();
           <li><a href="admin.php">ADMIN</a></li>
           <li><a href="logout.php">LOGOUT</a></li>
       <?php else: ?>
-          <li><a href="login.php">LOGIN</a></li>
+          <li><a href="inlog.php">LOGIN</a></li>
       <?php endif; ?>
     </ul>
   </nav>
 </header>
 
-    </header>
 
     <section class="hero">
         <img src="images/sushi-platter.png" alt="Sushi platter">
