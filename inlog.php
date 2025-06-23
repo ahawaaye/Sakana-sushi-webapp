@@ -35,12 +35,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Sakana Sushi - Login</title>
 </head>
 <body>
-    <h2>User Login</h2>
-    <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
-    <form method="POST">
-        <input type="text" name="username" placeholder="Username" required><br><br>
-        <input type="password" name="password" placeholder="Password" required><br><br>
-        <button type="submit">Login</button>
-    </form>
+    <header>
+    <div class="nav-container">
+        <img src="logo.png" alt="Sushi Logo" class="logo">
+        <nav>
+            <a href="index.php">home</a>
+            <a href="contact.php">contact</a>
+            <a href="about.php">about us</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="register-box">
+        <form method="post">
+            <label for="username">usernaam</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">wachtwoord</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">registreren</button>
+
+            <?php if ($error): ?>
+                <p style="color: red; margin-top: 20px;"><?= $error ?></p>
+            <?php endif; ?>
+
+            <?php if ($success): ?>
+                <p style="color: green; margin-top: 20px;"><?= $success ?></p>
+            <?php endif; ?>
+        </form>
+    </div>
+</main>
 </body>
 </html>
