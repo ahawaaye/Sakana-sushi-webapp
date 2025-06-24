@@ -37,7 +37,7 @@ $items = $stmt->fetchAll();
 </head>
 <body>
 
-<?php include 'includes/header.php'; ?>
+<?php include 'includes/header.php'?>
 <div class="container-for-width">
 
     <section class="hero">

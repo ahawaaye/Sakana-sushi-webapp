@@ -1,4 +1,7 @@
 
+<?
+require 'includes/db.php';
+?>
 
 <header>
     <div class="container-for-width header-container">

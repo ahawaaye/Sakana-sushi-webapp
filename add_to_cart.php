@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'includes/db.php';
 
 // Verwijder item als 'remove' is meegegeven
