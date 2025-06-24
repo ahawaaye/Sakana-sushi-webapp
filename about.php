@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </section>
 
 <section class="content-block">
-    <img src="images/kawaii_sushi.jpeg" alt="Sushi op tafel"> 
+    <img  class = "image_kawaii_sushi" src="images/kawaii_sushi.jpeg" alt="Sushi op tafel"> 
     <div class="text-box">
         <p>
             Laat je inspireren door onze meestersushi chefs. Van klassieke nigiri

@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit">Toevoegen</button>
         </form>
 
-        <a href="dashboard.php">← Terug naar Dashboard</a>
+        <a href="dashboard.php"> Terug naar Dashboard</a>
     </div>
 </body>
 </html>
