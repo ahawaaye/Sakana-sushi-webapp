@@ -1,10 +1,8 @@
 <?php
-
-require 'includes/db.php';
 session_start();
+require 'db.php';
 
 $error = '';
-$success = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
