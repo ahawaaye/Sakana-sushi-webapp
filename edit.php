@@ -1,37 +1,71 @@
 <?php
 require 'includes/db.php';
-$pdo = new PDO("mysql:host=mysql_db;dbname=mydatabase", "root", "rootpassword");
 
+$id = $_GET['id'] ?? null;
 
-if (!isset($_GET['id'])) {
-    header("Location: admin.php");
+if (!$id) {
+    echo "Geen ID opgegeven.";
     exit;
 }
 
-$id = $_GET['id'];
-
-
-$stmt = $pdo->prepare("SELECT * FROM menu_items WHERE id = ?");
+// Ophalen gerecht
+$stmt = $connect->prepare("SELECT * FROM food WHERE id = ?");
 $stmt->execute([$id]);
 $item = $stmt->fetch();
 
 if (!$item) {
-    echo "Item niet gevonden!";
+    echo "Gerecht niet gevonden.";
     exit;
 }
 
-// UPDATE na submit
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $naam = $_POST["naam"];
-    $beschrijving = $_POST["beschrijving"];
-    $prijs = $_POST["prijs"];
-    $afbeelding = $_POST["afbeelding"];
-    $categorie = $_POST["categorie"];
+// Als er is gepost, update uitvoeren
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
+    $image = $_POST['image_name'];
 
-    $stmt = $pdo->prepare("UPDATE menu_items SET naam=?, beschrijving=?, prijs=?, afbeelding=?, categorie=? WHERE id=?");
-    $stmt->execute([$naam, $beschrijving, $prijs, $afbeelding, $categorie, $id]);
+    $update = $connect->prepare("UPDATE food SET title = ?, description = ?, price = ?, image_name = ? WHERE id = ?");
+    $update->execute([$title, $description, $price, $image, $id]);
 
-    header("Location: admin.php");
+    header('Location: dashboard.php');
     exit;
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Menu</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="edit-page">
+
+    <h1 class="edit-title">Wijzig gerecht</h1>
+
+    <form method="post" class="edit-form">
+        <div class="form-group">
+            <label for="title">Titel</label>
+            <input type="text" id="title" name="title" class="form-input" value="<?= htmlspecialchars($item['title']) ?>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Beschrijving</label>
+            <input type="text" id="description" name="description" class="form-input" value="<?= htmlspecialchars($item['description']) ?>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Prijs (€)</label>
+            <input type="number" step="0.01" id="price" name="price" class="form-input" value="<?= htmlspecialchars($item['price']) ?>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="image_name">Afbeeldingsnaam</label>
+            <input type="text" id="image_name" name="image_name" class="form-input" value="<?= htmlspecialchars($item['image_name']) ?>" required>
+        </div>
+
+        <button type="submit" class="btn-save">Opslaan</button>
+    </form>
+
+</body>
+</html>

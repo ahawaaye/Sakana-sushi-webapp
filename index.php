@@ -36,8 +36,9 @@ $items = $stmt->fetchAll();
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <?php include 'includes/header.php'; ?>
-  <div class="container-for-width">
+
+<?php include 'includes/header.php'; ?>
+<div class="container-for-width">
 
     <section class="hero">
         <img src="images/sushi-platter.png" alt="Sushi platter">

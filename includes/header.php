@@ -4,7 +4,7 @@
     <div class="container-for-width header-container">
         <div class="logo">
             <a href="index.php">
-                <img src="logo.png" alt="Sakana Sushi Logo" height="40">
+                <img src="images/sakana-logo.png" alt="Sakana Sushi Logo" height="40">
             </a>
         </div>
         <nav>
