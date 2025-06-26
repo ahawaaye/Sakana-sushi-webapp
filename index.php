@@ -32,7 +32,7 @@ $items = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <title>Sakana Sushi</title>
@@ -40,54 +40,59 @@ $items = $stmt->fetchAll();
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
+
     <div class="container-for-width">
 
-        <section class="hero">
-            <img src="images/sushi-platter.png" alt="Sushi platter">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <img src="images/pngtree-sushi-plate-gourmet-lunch-png-image_11648836.png" alt="Sushi platter" class="hero-image">
         </section>
 
-        <section class="menu">
-            <div class="menu-content">
-                <h2>MENU'S <span>Sakana Sushi</span></h2>
-                <p>メニュー</p>
-                <p>Ontdek de diverse menu’s van SUMO Nijmegen. Van sushi tot grillgerechten, er is voor elk wat wils!</p>
+        <!-- Menu Section -->
+        <section class="menu-section">
+            <div class="menu-box">
+                <h2 class="menu-title">MENU'S <span>Sakana Sushi</span></h2>
+                <p class="menu-japanese">メニュー</p>
+                <p class="menu-description">Ontdek de diverse menu’s van SUMO Nijmegen. Van sushi tot grillgerechten, er is voor elk wat wils!</p>
                 <div class="menu-buttons">
-                    <button>nigiri</button>
-                    <button>gunkan</button>
-                    <button>maki</button>
-                    <button>sashimi</button>
-                    <button>temaki</button>
-                    <button>rice and noodles</button>
+                    <button class="menu-button">nigiri</button>
+                    <button class="menu-button">gunkan</button>
+                    <button class="menu-button">maki</button>
+                    <button class="menu-button">sashimi</button>
+                    <button class="menu-button">temaki</button>
+                    <button class="menu-button">rice and noodles</button>
                 </div>
             </div>
         </section>
 
-        <!-- ✅ Zoekformulier -->
+        <!-- Search Form -->
         <section class="search-section">
             <form method="get" class="search-form">
-                <input type="text" name="search" class="search-input" placeholder="Zoek een gerecht..." value="<?= htmlspecialchars($search) ?>">
+                <input type="text" name="search" class="search-input" placeholder="Zoek een gerecht..." value="<?= htmlspecialchars($search ?? '') ?>">
                 <button type="submit" class="search-button">Zoeken</button>
             </form>
         </section>
 
-        <main>
-            <h1>Nigiri</h1>
-            <div class="food-menu">
+        <!-- Food Menu Display -->
+        <main class="main-menu">
+            <h1 class="menu-heading">Nigiri</h1>
+            <div class="food-grid">
                 <?php if (count($items) === 0): ?>
-                    <p>Geen gerechten gevonden.</p>
+                    <p class="no-items">Geen gerechten gevonden.</p>
                 <?php else: ?>
                     <?php foreach ($items as $item): ?>
-                        <div class="food-item">
-                            <h2><?= htmlspecialchars($item['title']) ?></h2>
-                            <p><?= htmlspecialchars($item['description']) ?></p>
-                            <img src="images/<?= htmlspecialchars($item['image_name']) ?>.png" alt="<?= htmlspecialchars($item['title']) ?>">
-                            <button>&euro; <?= number_format($item['price'], 2) ?> +</button>
+                        <div class="food-card">
+                            <h2 class="food-title"><?= htmlspecialchars($item['title']) ?></h2>
+                            <p class="food-description"><?= htmlspecialchars($item['description']) ?></p>
+                            <img src="images/<?= htmlspecialchars($item['image_name']) ?>.png" alt="<?= htmlspecialchars($item['title']) ?>" class="food-image">
+                            <button class="price-button">&euro; <?= number_format($item['price'], 2) ?> +</button>
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
         </main>
-
     </div>
+
+    <?php include 'includes/footer.php'; ?>
 </body>
 </html>

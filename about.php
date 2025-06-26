@@ -40,6 +40,7 @@ require 'includes/db.php';
     </div>
 </section>
 
+<?php include 'includes/footer.php'; ?>
 
 </body>
 </html>

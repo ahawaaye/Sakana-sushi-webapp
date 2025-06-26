@@ -13,7 +13,6 @@ require 'includes/db.php';
         <nav>
             <ul>
                 <li><a href="index.php">HOME</a></li>
-                <li><a href="menu.php">MENU</a></li>
                 <li><a href="about.php">ABOUT US</a></li>
                 <li><a href="contact.php">CONTACT</a></li>
                 <?php if (!empty($_SESSION["loggedin"])): ?>
