@@ -45,7 +45,7 @@ $items = $stmt->fetchAll();
 
         <!-- Hero Section -->
         <section class="hero-section">
-            <img src="images/pngtree-sushi-plate-gourmet-lunch-png-image_11648836.png" alt="Sushi platter" class="hero-image">
+            <img src="images/ʚ♡⃛ɞ.jpeg" alt="Sushi platter" class="hero-image">
         </section>
 
         <!-- Menu Section -->
@@ -53,7 +53,7 @@ $items = $stmt->fetchAll();
             <div class="menu-box">
                 <h2 class="menu-title">MENU'S <span>Sakana Sushi</span></h2>
                 <p class="menu-japanese">メニュー</p>
-                <p class="menu-description">Ontdek de diverse menu’s van SUMO Nijmegen. Van sushi tot grillgerechten, er is voor elk wat wils!</p>
+                <p class="menu-description">Ontdek de diverse menu’s van SAKANA Nijmegen. Van sushi tot grillgerechten, er is voor elk wat wils!</p>
                 <div class="menu-buttons">
                     <button class="menu-button">nigiri</button>
                     <button class="menu-button">gunkan</button>
@@ -75,7 +75,7 @@ $items = $stmt->fetchAll();
 
         <!-- Food Menu Display -->
         <main class="main-menu">
-            <h1 class="menu-heading">Nigiri</h1>
+            <h1 class="menu-heading">Sushi</h1>
             <div class="food-grid">
                 <?php if (count($items) === 0): ?>
                     <p class="no-items">Geen gerechten gevonden.</p>

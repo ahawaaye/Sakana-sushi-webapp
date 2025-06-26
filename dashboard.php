@@ -2,7 +2,7 @@
 require 'includes/db.php';
 
 
-// Fetch all gerechten
+
 $stmt = $connect->query("SELECT * FROM food");
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>

@@ -27,11 +27,20 @@
       <button type="submit">Verstuur</button>
     </form>
 
-    <?php
+       <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        echo "<p style='color: green; margin-top: 20px;'>Bedankt voor je bericht, " . htmlspecialchars($_POST['name']) . "!</p>";
+        $naam = $_POST['name'];
+        $email = $_POST['email'];
+        $bericht = $_POST['message'];
+
+        // Voeg toe aan database
+        $stmt = $connect->prepare("INSERT INTO contact_messages (naam, email, bericht, datum_verzonden) VALUES (?, ?, ?, NOW())");
+        $stmt->execute([$naam, $email, $bericht]);
+
+        echo "<p style='color: green; margin-top: 20px;'>Bedankt voor je bericht, " . htmlspecialchars($naam) . "!</p>";
     }
     ?>
+    
   </div>
 </main>
 <?php include 'includes/footer.php'; ?>
